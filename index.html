@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Портфолио Python Backend Developer Ильи Кроссова">
+
+    <meta name="theme-color"
+          content="#09090b">
+
+    <title>Ilya_Krossov | Python Backend Developer</title>
+
+    <style>
+      :root {
+
+      --bg: #09090b;
+      --bg2: #111113;
+
+      --card: rgba(255,255,255,.05);
+
+      --card-border: rgba(255,255,255,.08);
+
+      --text: #ffffff;
+
+      --text2: #b6b6c2;
+
+      --accent: #3b82f6;
+
+      --accent2: #7c3aed;
+
+      --shadow:
+          0 0 40px rgba(0,0,0,.35);
+
+      --radius: 22px;
+
+      }
+
+      *{
+
+          margin:0;
+
+          padding:0;
+
+          box-sizing:border-box;
+
+      }
+
+      html{
+
+          scroll-behavior:smooth;
+
+      }
+
+      body{
+
+          background:var(--bg);
+
+          color:var(--text);
+
+          font-family:"Inter",sans-serif;
+
+          overflow-x:hidden;
+
+      }
+
+      a{
+
+          color:inherit;
+
+          text-decoration:none;
+
+      }
+
+      ul{
+
+          list-style:none;
+
+      }
+
+      canvas{
+
+          position:fixed;
+
+          inset:0;
+
+          width:100%;
+
+          height:100%;
+
+          z-index:-2;
+
+      }
+
+      body::before{
+
+          content:"";
+
+          position:fixed;
+
+          inset:0;
+
+          background:
+
+              radial-gradient(circle at top right,
+              rgba(124,58,237,.22),
+              transparent 35%),
+
+              radial-gradient(circle at left,
+              rgba(59,130,246,.18),
+              transparent 30%),
+
+              linear-gradient(180deg,
+              #09090b,
+              #111113);
+
+          z-index:-1;
+
+      }
+
+      /* ===========================
+        NAVBAR
+      =========================== */
+
+      .navbar{
+
+          position:fixed;
+
+          top:20px;
+
+          left:50%;
+
+          transform:translateX(-50%);
+
+          width:min(1200px,92%);
+
+          display:flex;
+
+          justify-content:space-between;
+
+          align-items:center;
+
+          padding:16px 28px;
+
+          backdrop-filter:blur(18px);
+
+          background:rgba(255,255,255,.04);
+
+          border:1px solid var(--card-border);
+
+          border-radius:18px;
+
+          z-index:1000;
+
+      }
+
+      .logo{
+
+          font-size:22px;
+
+          font-weight:800;
+
+      }
+
+      .logo span{
+
+          color:var(--accent);
+
+      }
+
+      .nav-links{
+
+          display:flex;
+
+          gap:35px;
+
+      }
+
+      .nav-links a{
+
+          color:var(--text2);
+
+          transition:.3s;
+
+          position:relative;
+
+      }
+
+      .nav-links a:hover{
+
+          color:white;
+
+      }
+
+      .nav-links a::after{
+
+          content:"";
+
+          position:absolute;
+
+          bottom:-6px;
+
+          left:0;
+
+          width:0;
+
+          height:2px;
+
+          background:var(--accent);
+
+          transition:.3s;
+
+      }
+
+      .nav-links a:hover::after{
+
+          width:100%;
+
+      }
+
+      /* ===========================
+        HERO
+      =========================== */
+
+      .hero{
+
+          min-height:100vh;
+
+          width:min(1250px,92%);
+
+          margin:auto;
+
+          display:grid;
+
+          grid-template-columns:1fr 520px;
+
+          align-items:center;
+
+          gap:90px;
+
+      }
+
+      .hero-left h1{
+
+          font-size:72px;
+
+          line-height:1;
+
+          margin:18px 0;
+
+      }
+
+      .hero-left h2{
+
+          font-size:30px;
+
+          color:var(--accent);
+
+          margin-bottom:30px;
+
+      }
+
+      .hero-text{
+
+          color:var(--text2);
+
+          line-height:1.8;
+
+          font-size:18px;
+
+          max-width:650px;
+
+      }
+
+      .hello{
+
+          color:var(--text2);
+
+          font-size:18px;
+
+      }
+
+      .hero-buttons{
+
+          display:flex;
+
+          gap:18px;
+
+          margin-top:40px;
+
+      }
+
+      .btn{
+
+          padding:15px 30px;
+
+          border-radius:16px;
+
+          transition:.35s;
+
+          font-weight:600;
+
+      }
+
+      .btn{
+
+          padding:15px 30px;
+
+          border-radius:16px;
+
+          transition:.35s;
+
+          font-weight:600;
+
+          display:inline-flex;
+
+          align-items:center;
+
+          justify-content:center;
+
+      }
+
+      /* GitHub */
+
+      .hero-buttons .btn:nth-child(1){
+
+          background:linear-gradient(135deg,
+
+          var(--accent),
+
+          var(--accent2));
+
+          border:1px solid rgba(255,255,255,.08);
+
+      }
+
+      .hero-buttons .btn:nth-child(1):hover{
+
+          background:linear-gradient(135deg,
+
+          var(--accent),
+
+          var(--accent2));
+
+          transform:translateY(-4px);
+
+          box-shadow:0 0 35px var(--accent);
+
+      }
+
+      /* Telegram */
+
+      .hero-buttons .btn:nth-child(2){
+
+          background:linear-gradient(135deg,
+
+          rgba(34,158,217,.45),
+
+          var(--accent));
+
+      }
+
+      .hero-buttons .btn:nth-child(2):hover{
+
+          background:linear-gradient(135deg,
+
+          rgba(34,158,217,.45),
+
+          var(--accent));
+
+          transform:translateY(-4px);
+
+          box-shadow:0 0 35px rgba(34,158,217,.45);
+
+      }
+
+      /* Projects */
+
+      .hero-buttons .btn:nth-child(3){
+
+          background:linear-gradient(135deg,
+
+          rgba(201, 0, 0, 0.726),
+
+          rgba(68, 0, 0, 0.45));
+
+      }
+
+      .hero-buttons .btn:nth-child(3):hover{
+
+          background:linear-gradient(135deg,
+
+          rgba(201, 0, 0, 0.726),
+
+          rgba(68, 0, 0, 0.45));
+
+          transform:translateY(-4px);
+
+          box-shadow:0 0 35px rgba(201, 0, 0, 0.726);
+
+      }
+
+      /* ===========================
+        TERMINAL
+      =========================== */
+
+      .terminal{
+
+          border-radius:22px;
+
+          overflow:hidden;
+
+          border:1px solid var(--card-border);
+
+          background:#111114;
+
+          box-shadow:var(--shadow);
+
+      }
+
+      .terminal-top{
+
+          display:flex;
+
+          gap:10px;
+
+          padding:15px;
+
+          background:#1a1a1d;
+
+      }
+
+      .red,
+      .yellow,
+      .green{
+
+          width:13px;
+
+          height:13px;
+
+          border-radius:50%;
+
+      }
+
+      .red{
+
+          background:#ff5f57;
+
+      }
+
+      .yellow{
+
+          background:#febc2e;
+
+      }
+
+      .green{
+
+          background:#28c840;
+
+      }
+
+      .terminal-body{
+
+          padding:35px;
+
+      }
+
+      pre{
+
+          color:#7dfb92;
+
+          line-height:1.9;
+
+          font-family:Consolas,monospace;
+
+          font-size:16px;
+
+      }
+
+      /* =======================================================
+        Sections
+      ======================================================= */
+
+      .section{
+
+          width:min(1250px,92%);
+          margin:120px auto;
+
+      }
+
+      .section-title{
+
+          margin-bottom:50px;
+
+      }
+
+      .section-title span{
+
+          color:var(--accent);
+          font-weight:700;
+          letter-spacing:1px;
+          text-transform:uppercase;
+          font-size:.9rem;
+
+      }
+
+      .section-title h2{
+
+          margin-top:12px;
+          font-size:3rem;
+
+      }
+
+      .section-title p{
+
+          margin-top:20px;
+          color:var(--text2);
+          max-width:700px;
+          line-height:1.8;
+
+      }
+
+      /* =======================================================
+        About
+      ======================================================= */
+
+      .about-card{
+
+          background:var(--card);
+
+          border:1px solid var(--card-border);
+
+          border-radius:var(--radius);
+
+          backdrop-filter:blur(20px);
+
+          padding:45px;
+
+          box-shadow:var(--shadow);
+
+      }
+
+      .about-card p{
+
+          line-height:2;
+
+          color:var(--text2);
+
+          margin-bottom:25px;
+
+      }
+
+      .about-card strong{
+
+          color:white;
+
+      }
+
+      /* =======================================================
+        Skills
+      ======================================================= */
+
+      .skills-grid{
+
+          display:grid;
+
+          grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+          gap:30px;
+
+      }
+
+      .skill-card{
+
+          background:var(--card);
+
+          border:1px solid var(--card-border);
+
+          border-radius:var(--radius);
+
+          backdrop-filter:blur(20px);
+
+          padding:35px;
+
+          transition:.35s;
+
+      }
+
+      .skill-card:hover{
+
+          transform:translateY(-10px);
+
+          border-color:rgba(59,130,246,.4);
+
+          box-shadow:
+              0 20px 50px rgba(0,0,0,.45);
+
+      }
+
+      .skill-card h3{
+
+          margin-bottom:20px;
+
+          font-size:1.5rem;
+
+      }
+
+      .skill-card li{
+
+          margin:14px 0;
+
+          color:var(--text2);
+
+      }
+
+      /* =======================================================
+        Projects
+      ======================================================= */
+
+      .projects-grid{
+
+          display:grid;
+
+          grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+          gap:35px;
+
+      }
+
+      .project-card{
+
+          background:var(--card);
+
+          border:1px solid var(--card-border);
+
+          border-radius:28px;
+
+          padding:35px;
+
+          transition:.4s;
+
+          backdrop-filter:blur(18px);
+
+          position:relative;
+
+          overflow:hidden;
+
+      }
+
+      .project-card::before{
+
+          content:"";
+
+          position:absolute;
+
+          inset:0;
+
+          opacity:0;
+
+          transition:.4s;
+
+          background:
+
+          radial-gradient(circle at top right,
+
+          rgba(59,130,246,.18),
+
+          transparent 45%);
+
+      }
+
+      .project-card:hover::before{
+
+          opacity:1;
+
+      }
+
+      .project-card:hover{
+
+          transform:translateY(-12px);
+
+          border-color:rgba(59,130,246,.45);
+
+          box-shadow:
+
+          0 25px 60px rgba(0,0,0,.45);
+
+      }
+
+      .featured{
+
+          border:1px solid rgba(59,130,246,.35);
+
+      }
+
+      .project-header{
+
+          display:flex;
+
+          align-items:center;
+
+          gap:18px;
+
+          margin-bottom:25px;
+
+      }
+
+      .project-icon{
+
+          width:65px;
+
+          height:65px;
+
+          border-radius:18px;
+
+          display:grid;
+
+          place-items:center;
+
+          font-size:28px;
+
+          background:
+
+          linear-gradient(135deg,
+
+          var(--accent),
+
+          var(--accent2));
+
+      }
+
+      .project-header h3{
+
+          font-size:1.7rem;
+
+      }
+
+      .project-header span{
+
+          color:var(--text2);
+
+      }
+
+      .project-card p{
+
+          color:var(--text2);
+
+          line-height:1.8;
+
+          margin-bottom:25px;
+
+      }
+
+      .project-tags{
+
+          display:flex;
+
+          flex-wrap:wrap;
+
+          gap:10px;
+
+          margin-bottom:25px;
+
+      }
+
+      .project-tags span{
+
+          padding:8px 15px;
+
+          border-radius:999px;
+
+          background:rgba(255,255,255,.06);
+
+          font-size:.85rem;
+
+      }
+
+      .project-list{
+
+          margin-bottom:30px;
+
+      }
+
+      .project-list li{
+
+          margin:12px 0;
+
+          color:var(--text2);
+
+      }
+
+      .project-button{
+
+          display:inline-block;
+
+          padding:14px 26px;
+
+          border-radius:14px;
+
+          background:linear-gradient(135deg,
+
+          var(--accent),
+
+          var(--accent2));
+
+          transition:.3s;
+
+      }
+
+      .project-button:hover{
+
+          transform:translateY(-3px);
+
+      }
+
+      .project-status{
+
+          margin-top:25px;
+
+          color:#fbbf24;
+
+      }
+
+      /* =======================================================
+        Timeline
+      ======================================================= */
+
+      .timeline{
+
+          display:flex;
+
+          flex-direction:column;
+
+          gap:30px;
+
+      }
+
+      .timeline-item{
+
+          display:grid;
+
+          grid-template-columns:120px 1fr;
+
+          gap:35px;
+
+          align-items:start;
+
+      }
+
+      .timeline-year{
+
+          color:var(--accent);
+
+          font-size:1.4rem;
+
+          font-weight:700;
+
+      }
+
+      .timeline-content{
+
+          background:var(--card);
+
+          border:1px solid var(--card-border);
+
+          border-radius:18px;
+
+          padding:25px;
+
+          color:var(--text2);
+
+          line-height:1.8;
+
+      }
+
+      /* =======================================================
+        Contact
+      ======================================================= */
+
+      .contact-grid{
+
+          display:grid;
+
+          grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+          gap:25px;
+
+      }
+
+      .contact-card{
+
+          background:var(--card);
+
+          border:1px solid var(--card-border);
+
+          border-radius:22px;
+
+          padding:35px;
+
+          transition:.35s;
+
+      }
+
+      .contact-card:hover{
+
+          transform:translateY(-8px);
+
+          border-color:rgba(59,130,246,.45);
+
+      }
+
+      .contact-card h3{
+
+          margin-bottom:15px;
+
+      }
+
+      .contact-card p{
+
+          color:var(--text2);
+
+      }
+
+      /* =======================================================
+        Footer
+      ======================================================= */
+
+      footer{
+
+          width:min(1200px,92%);
+
+          margin:120px auto 50px;
+
+          padding-top:50px;
+
+          border-top:1px solid rgba(255,255,255,.08);
+
+          text-align:center;
+
+      }
+
+      .footer-title{
+
+          font-size:2rem;
+
+          font-weight:800;
+
+          margin-bottom:15px;
+
+      }
+
+      footer p{
+
+          color:var(--text2);
+
+          margin-top:10px;
+
+      }
+
+      /* =======================================================
+        Responsive
+      ======================================================= */
+
+      @media(max-width:1000px){
+
+      .hero{
+
+      grid-template-columns:1fr;
+
+      padding-top:140px;
+
+      gap:60px;
+
+      }
+
+      .hero-right{
+
+      order:-1;
+
+      }
+
+      .hero-left h1{
+
+      font-size:56px;
+
+      }
+
+      .nav-links{
+
+      display:none;
+
+      }
+
+      }
+
+      @media(max-width:700px){
+
+      .hero-left h1{
+
+      font-size:42px;
+
+      }
+
+      .hero-left h2{
+
+      font-size:24px;
+
+      }
+
+      .hero-buttons{
+
+      flex-direction:column;
+
+      }
+
+      .timeline-item{
+
+      grid-template-columns:1fr;
+
+      }
+
+      .about-card{
+
+      padding:30px;
+
+      }
+
+      .skill-card{
+
+      padding:28px;
+
+      }
+
+      .project-card{
+
+      padding:28px;
+
+      }
+
+      .contact-card{
+
+      padding:28px;
+
+      }
+
+      .section-title h2{
+
+      font-size:2.2rem;
+
+      }
+
+      }
+    </style>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+
+    <canvas id="background"></canvas>
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            Ilya<span>_Krossov</span>
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="#about">Обо мне</a>
+            <a href="#skills">Навыки</a>
+            <a href="#projects">Проекты</a>
+            <a href="#contact">Контакты</a>
+
+        </div>
+
+    </nav>
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div class="hero-left">
+
+            <p class="hello">
+
+                👋 Привет, меня зовут
+
+            </p>
+
+            <h1>
+
+                Илья Кроссов
+
+            </h1>
+
+            <h2>
+
+                Python Backend Developer
+
+            </h2>
+
+            <p class="hero-text">
+
+                Студент второго курса направления
+                <strong>"Разработка программного обеспечения"</strong>.
+
+                Люблю автоматизацию,
+                backend,
+                работу с API,
+                локальные AI-модели
+                и создание действительно полезных инструментов.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="https://github.com/krossovkaEncore"
+                   target="_blank"
+                   class="btn primary">
+
+                    GitHub
+
+                </a>
+
+                <a href="https://t.me/I_Myhich"
+                   target="_blank"
+                   class="btn secondary">
+
+                    Telegram
+
+                </a>
+
+                <a href="#projects"
+                   class="btn secondary">
+
+                    Проекты
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <div class="terminal">
+
+                <div class="terminal-top">
+
+                    <span class="red"></span>
+                    <span class="yellow"></span>
+                    <span class="green"></span>
+
+                </div>
+
+                <div class="terminal-body">
+
+<pre id="typing">
+
+> booting...
+
+Loading profile...
+
+Developer:
+Ilya_Krossov
+
+Age:
+17
+
+Role:
+Python Backend Developer
+
+Status:
+
+██████████░░░░░░
+
+Initializing Jarvis...
+
+</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- About -->
+
+    <section id="about"
+             class="section">
+
+        <h2>
+
+            Обо мне
+
+        </h2>
+
+        <div class="about-card">
+
+            <p>
+
+                Меня зовут Илья, мне <strong>17 лет</strong>.
+
+                Я студент второго курса по направлению
+                <strong>«Разработка программного обеспечения»</strong>.
+
+            </p>
+
+            <p>
+
+                Основной язык разработки —
+                <strong>Python</strong>.
+
+                Больше всего мне нравится создавать
+                инструменты автоматизации,
+                backend-сервисы,
+                работать с API
+                и экспериментировать с локальными LLM.
+
+            </p>
+
+            <p>
+
+                Сейчас активно развиваю проект
+                <strong>Jarvis</strong>,
+                который постепенно превращается
+                в персонального AI-ассистента
+                с голосовым управлением,
+                автоматизацией действий на ПК,
+                памятью
+                и интеграцией локальных нейросетей.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Skills -->
+
+    <section id="skills"
+             class="section">
+
+        <h2>
+
+            Технологии
+
+        </h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <h3>
+
+                    🐍 Python
+
+                </h3>
+
+                <ul>
+
+                    <li>Automation</li>
+
+                    <li>REST API</li>
+
+                    <li>Telegram Bots</li>
+
+                    <li>JSON</li>
+
+                    <li>CLI</li>
+
+                </ul>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>
+
+                    🤖 AI
+
+                </h3>
+
+                <ul>
+
+                    <li>Ollama</li>
+
+                    <li>Piper TTS</li>
+
+                    <li>Prompt Engineering</li>
+
+                    <li>Local LLM</li>
+
+                </ul>
+
+            </div>
+
+            <div class="skill-card">
+
+                <h3>
+
+                    ⚙️ Tools
+
+                </h3>
+
+                <ul>
+
+                    <li>Git</li>
+
+                    <li>GitHub</li>
+
+                    <li>Linux</li>
+
+                    <li>Windows</li>
+
+                    <li>Bash</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ========================= -->
+    <!-- Projects -->
+    <!-- ========================= -->
+
+    <section class="section" id="projects">
+
+        <div class="section-title">
+
+            <span>🚀 Портфолио</span>
+
+            <h2>Избранные проекты</h2>
+
+            <p>
+                Здесь представлены проекты, над которыми я работаю
+                в свободное время для развития своих навыков.
+            </p>
+
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- Jarvis -->
+
+            <article class="project-card featured">
+
+                <div class="project-header">
+
+                    <div class="project-icon">
+
+                        🤖
+
+                    </div>
+
+                    <div>
+
+                        <h3>Jarvis</h3>
+
+                        <span>Personal AI Assistant</span>
+
+                    </div>
+
+                </div>
+
+                <p>
+
+                    Экспериментальный персональный AI-ассистент,
+                    который объединяет локальные языковые модели,
+                    голосовое взаимодействие,
+                    автоматизацию задач
+                    и управление компьютером.
+
+                </p>
+
+                <div class="project-tags">
+
+                    <span>Python</span>
+                    <span>Ollama</span>
+                    <span>Piper</span>
+                    <span>Automation</span>
+                    <span>API</span>
+
+                </div>
+
+                <ul class="project-list">
+
+                    <li>✔ Выполнение системных команд</li>
+
+                    <li>✔ Голосовой интерфейс</li>
+
+                    <li>✔ Работа с локальными LLM</li>
+
+                    <li>✔ Интеграция с API</li>
+
+                    <li>✔ Система памяти</li>
+
+                </ul>
+
+                <a href="https://github.com/krossovkaEncore/Jarvis"
+                   target="_blank"
+                   class="project-button">
+
+                    Открыть GitHub →
+
+                </a>
+
+            </article>
+
+            <!-- Xcord -->
+
+            <article class="project-card">
+
+                <div class="project-header">
+
+                    <div class="project-icon">
+
+                        💬
+
+                    </div>
+
+                    <div>
+
+                        <h3>Xcord</h3>
+
+                        <span>Messenger</span>
+
+                    </div>
+
+                </div>
+
+                <p>
+
+                    Экспериментальный мессенджер,
+                    созданный для изучения клиент-серверной архитектуры,
+                    передачи сообщений
+                    и разработки сетевых приложений.
+
+                </p>
+
+                <div class="project-tags">
+
+                    <span>Python</span>
+                    <span>Networking</span>
+                    <span>Socket</span>
+
+                </div>
+
+                <div class="project-status">
+
+                    🚧 В активной разработке
+
+                </div>
+
+            </article>
+
+            <!-- Utilities -->
+
+            <article class="project-card">
+
+                <div class="project-header">
+
+                    <div class="project-icon">
+
+                        ⚙️
+
+                    </div>
+
+                    <div>
+
+                        <h3>Automation</h3>
+
+                        <span>Utilities</span>
+
+                    </div>
+
+                </div>
+
+                <p>
+
+                    Более двадцати небольших проектов,
+                    консольных утилит,
+                    автоматизаций
+                    и экспериментов,
+                    написанных во время обучения.
+
+                </p>
+
+                <div class="project-tags">
+
+                    <span>Python</span>
+                    <span>CLI</span>
+                    <span>Automation</span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- Timeline -->
+    <!-- ========================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <span>📈 Развитие</span>
+
+            <h2>Мой путь</h2>
+
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+
+                    2023
+
+                </div>
+
+                <div class="timeline-content">
+
+                    Начал активно изучать Python
+                    и писать первые проекты.
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+
+                    2024
+
+                </div>
+
+                <div class="timeline-content">
+
+                    Изучение API,
+                    Git,
+                    автоматизации
+                    и backend.
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+
+                    2025
+
+                </div>
+
+                <div class="timeline-content">
+
+                    Начал разработку Jarvis
+                    и собственного мессенджера.
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+
+                    Сейчас
+
+                </div>
+
+                <div class="timeline-content">
+
+                    Изучаю Kotlin,
+                    JavaScript,
+                    архитектуру приложений
+                    и углубляюсь в кибербезопасность.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- Contact -->
+    <!-- ========================= -->
+
+    <section class="section" id="contact">
+
+        <div class="section-title">
+
+            <span>📬 Контакты</span>
+
+            <h2>Связаться со мной</h2>
+
+        </div>
+
+        <div class="contact-grid">
+
+            <a class="contact-card"
+               href="mailto:krossovka160609@gmail.com">
+
+                <h3>Email</h3>
+
+                <p>
+
+                    krossovka160609@gmail.com
+
+                </p>
+
+            </a>
+
+            <a class="contact-card"
+               target="_blank"
+               href="https://t.me/I_Myhich">
+
+                <h3>Telegram</h3>
+
+                <p>
+
+                    @I_Myhich
+
+                </p>
+
+            </a>
+
+            <a class="contact-card"
+               target="_blank"
+               href="https://github.com/krossovkaEncore">
+
+                <h3>GitHub</h3>
+
+                <p>
+
+                    github.com/krossovkaEncore
+
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- Footer -->
+    <!-- ========================= -->
+
+    <footer>
+
+        <div class="footer-title">
+
+            Ilya_Krossov
+
+        </div>
+
+        <p>
+
+            Python Backend Developer • Automation • AI • Cybersecurity
+
+        </p>
+
+        <p>
+
+            © <span id="year"></span>
+
+            Все права защищены.
+
+        </p>
+
+    </footer>
+
+    <script>
+      /* =====================================================
+        Portfolio Script
+        Part 1
+      ===================================================== */
+
+      /* ---------- Footer year ---------- */
+
+      const year = document.getElementById("year");
+
+      if (year) {
+          year.textContent = new Date().getFullYear();
+      }
+
+      /* ---------- Smooth anchor scroll ---------- */
+
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+          link.addEventListener("click", e => {
+
+              const target = document.querySelector(link.getAttribute("href"));
+
+              if (!target) return;
+
+              e.preventDefault();
+
+              target.scrollIntoView({
+
+                  behavior: "smooth",
+                  block: "start"
+
+              });
+
+          });
+
+      });
+
+      /* ---------- Typing terminal ---------- */
+
+      const terminal = document.getElementById("typing");
+
+      if (terminal) {
+
+          const text = `> booting...
+
+      Loading profile...
+
+      Developer:
+      Ilya_Krossov
+
+      Age:
+      17
+
+      Role:
+      Python Backend Developer
+
+      Status:
+
+      ████████████████
+
+      Initializing Jarvis...
+
+      Ready.
+
+      >`;
+
+          terminal.textContent = "";
+
+          let i = 0;
+
+          function type() {
+
+              if (i >= text.length)
+                  return;
+
+              terminal.textContent += text.charAt(i);
+
+              i++;
+
+              setTimeout(type, 22);
+
+          }
+
+          type();
+
+      }
+
+      /* ---------- Reveal animation ---------- */
+
+      const sections = document.querySelectorAll(".section");
+
+      sections.forEach(section => {
+
+          section.style.opacity = "0";
+
+          section.style.transform = "translateY(50px)";
+
+          section.style.transition = ".8s ease";
+
+      });
+
+      const observer = new IntersectionObserver(entries => {
+
+          entries.forEach(entry => {
+
+              if (!entry.isIntersecting)
+                  return;
+
+              entry.target.style.opacity = "1";
+
+              entry.target.style.transform = "translateY(0px)";
+
+          });
+
+      }, {
+
+          threshold: .15
+
+      });
+
+      sections.forEach(section => observer.observe(section));
+    </script>
+
+</body>
+
+</html>
